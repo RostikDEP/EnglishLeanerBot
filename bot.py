@@ -4,14 +4,10 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message
 import asyncio
 
+
 load_dotenv()
 bot = Bot(os.getenv("TOKEN"))
 dp = Dispatcher()
-
-
-@dp.message(F.text == "/start")
-async  def start(message: Message):
-    await message.reply("Hello")
 
 
 async def main():
@@ -20,4 +16,5 @@ async def main():
 
 
 if __name__ == "__main__":
+    from handlers import *
     asyncio.run(main())
