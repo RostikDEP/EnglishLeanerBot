@@ -13,6 +13,6 @@ class dbProcessor:
         self.db.commit()
 
 
-if __name__ == "__main__":
-    dbProc = dbProcessor("../data/words.db")
-    dbProc.AddWord("Hello", "Hello", "Sentence","User")
+# if __name__ == "__main__":
+#     dbProc = dbProcessor("../data/words.db")
+#     dbProc.AddWord("Hello", "Hello", "Sentence","User")
