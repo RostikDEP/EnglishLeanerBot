@@ -1,4 +1,5 @@
-from bot import dp
+import bot
+from bot import dp, dbProc
 from aiogram import F
 from aiogram.types import Message
 from aiogram.fsm.state import State, StatesGroup
@@ -35,3 +36,5 @@ async def record_translate(message: Message, state: FSMContext):
 async def record_sentence(message: Message, state: FSMContext):
     await state.update_data(sentence=message.text)
     await message.answer("Чудово. Записую слово в базу..")
+    data = await state.get_data()
+    dbProc.AddWord(data['word'], data['translate'], data['sentence'], message.chat.id)

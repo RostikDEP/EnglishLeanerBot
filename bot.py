@@ -1,13 +1,14 @@
 import os
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, F
-from aiogram.types import Message
 import asyncio
+from database import dbProcessor
 
 
 load_dotenv()
 bot = Bot(os.getenv("TOKEN"))
 dp = Dispatcher()
+dbProc = dbProcessor("data/words.db")
 
 
 async def main():
