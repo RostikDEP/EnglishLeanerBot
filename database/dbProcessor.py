@@ -12,7 +12,13 @@ class dbProcessor:
         self.cursor.execute(f"INSERT INTO words(word, translate, sentence, user, entered, complete) VALUES (?, ?, ?, ?, ?, ?)", (word_, translate, sentence ,user, 0, 0))
         self.db.commit()
 
+    def GetRandomWord(self):
+        data = self.cursor.execute("SELECT * FROM words ORDER BY RANDOM() LIMIT 1")
+        return data.fetchone()
+
+
 
 # if __name__ == "__main__":
 #     dbProc = dbProcessor("../data/words.db")
-#     dbProc.AddWord("Hello", "Hello", "Sentence","User")
+#     print(dbProc.GetRandomWord())
+#   dbProc.AddWord("Hello", "Hello", "Sentence","User")

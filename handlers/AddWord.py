@@ -38,3 +38,4 @@ async def record_sentence(message: Message, state: FSMContext):
     await message.answer("Чудово. Записую слово в базу..")
     data = await state.get_data()
     dbProc.AddWord(data['word'], data['translate'], data['sentence'], message.chat.id)
+    await state.clear()
